@@ -3,4 +3,4 @@ nav:
   - "主页": index.md
   - "Subjects":
     - "ADS":
-      - Dynamic Programming.md
+      - ADS/Dynamic Programming.md
