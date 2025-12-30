@@ -25,7 +25,7 @@ Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些�
 #### 【Fibonacci Numbers:  F(N) = F(N – 1) + F(N – 2)】
 ![alt](./assets/image.png)
 
-递归复杂度：$O(2^N)$
+递归复杂度：\$O(2^N)\$
 
 原因：递归中有大量重复计算；
 
@@ -33,14 +33,14 @@ Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些�
 2. DP法二：如左图，不用递归，类似<u>左脚踩右脚</u>的方法，记录最近的两个数，自底向上；
 
 #### 【Ordering Matrix Multiplying】
-![](https://cdn.nlark.com/yuque/0/2023/png/34330502/1683285558181-421a1823-5944-4a97-85d9-7b5fea21d0fb.png)
+![PPT内容](./assets/image2.png)
 
 不同计算顺序下，矩阵乘法的计算量有显著差异；
 
 如何找出最优的矩阵乘法顺序？
 
 ##### （1）N个矩阵相乘有多少种order
-![](https://cdn.nlark.com/yuque/0/2023/png/34330502/1683286117130-496f0464-facb-474a-bb37-aa33f2e8962e.png)
+![Step 1](./assets/image3.png)
 
 ##### （2）N个矩阵相乘化为两个两个最优子矩阵相乘
 
