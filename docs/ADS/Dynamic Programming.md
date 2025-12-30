@@ -33,24 +33,24 @@ Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些�
 2. DP法二：如左图，不用递归，类似<u>左脚踩右脚</u>的方法，记录最近的两个数，自底向上；
 
 #### 【Ordering Matrix Multiplying】
-![PPT内容](./assets/image2.png)
+![alt](./assets/image2.png)
 
 不同计算顺序下，矩阵乘法的计算量有显著差异；
 
 如何找出最优的矩阵乘法顺序？
 
 ##### （1）N个矩阵相乘有多少种order
-![Step 1](./assets/image3.png)
+![alt](./assets/image3.png)
 
 ##### （2）N个矩阵相乘化为两个两个最优子矩阵相乘
 
 🌹_**<u><font style="color:#DF2A3F;">最优子结构：全局最优解依赖于各自独立的局部最优解</font></u>**_
 
-![](https://cdn.nlark.com/yuque/0/2023/png/34330502/1683286568007-77a0728e-e498-45f4-9296-f59c9262bbc1.png)
+![alt](./assets/image4.png)
 
 $m_{ij}$表示原问题的一个泛化，称为”状态“
 
-具体代码实现，时间复杂度为![image](https://cdn.nlark.com/yuque/__latex/3ac63bab7086fb68e706e936a7ecabf4.svg)
+具体代码实现，时间复杂度为![alt](./assets/image5.svg)
 
 ```c
 /* r contains number of columns for each of the N matrices */ 
@@ -77,9 +77,9 @@ void OptMatrix( const long r[ ], int N, TwoDimArray M )
 > 最优二叉搜索树，最优的静态搜索（没有插入和删除）
 >
 
-![](https://cdn.nlark.com/yuque/0/2023/png/34330502/1683289681731-71a46324-10b6-407e-8e0b-aaa9ed79bb3c.png)
+![alt](./assets/image6.png)
 
-![](https://cdn.nlark.com/yuque/0/2023/png/34330502/1683290384957-eda3118a-2f4b-4509-b133-9cc76dbb1758.png)
+![alt](./assets/image7.png)
 
 从左图可以看出：
 
@@ -90,6 +90,6 @@ void OptMatrix( const long r[ ], int N, TwoDimArray M )
 
 #### 【All-Pairs Shortest Path】
 ##### （1）Single-Source Algorithm
-用Dijkstra算法等单源最短路径算法，对每个节点用一次，时间复杂度为![image](https://cdn.nlark.com/yuque/__latex/9a9b070e4eea2580e65ccf1849a41081.svg)，稀疏图更快；
+用Dijkstra算法等单源最短路径算法，对每个节点用一次，时间复杂度为![alt](./assets/image8.svg)，稀疏图更快；
 
 ##### （2）DP
