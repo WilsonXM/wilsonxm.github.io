@@ -1,0 +1,731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Dynamic Programming - WilsonXM's Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#18x-lesson-8dynamic-programming" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WilsonXM&#39;s Notebook" class="md-header__button md-logo" aria-label="WilsonXM's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WilsonXM's Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dynamic Programming
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WilsonXM&#39;s Notebook" class="md-nav__button md-logo" aria-label="WilsonXM's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    WilsonXM's Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Subjects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Subjects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ADS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            ADS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#18x-lesson-8dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.8.x] Lesson 8——Dynamic Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.8.x] Lesson 8——Dynamic Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#181x-dptheory" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.8.1.x] DP——Theory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#182x-dpinstants" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.8.2.x] DP——Instants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.8.2.x] DP——Instants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fibonacci-numbers-fn-fn-1-fn-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Fibonacci Numbers: F(N) = F(N – 1) + F(N – 2)】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering-matrix-multiplying" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Ordering Matrix Multiplying】
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【Ordering Matrix Multiplying】">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1norder" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）N个矩阵相乘有多少种order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2n" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）N个矩阵相乘化为两个两个最优子矩阵相乘
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimal-binary-search-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Optimal Binary Search Tree】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-pairs-shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      【All-Pairs Shortest Path】
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【All-Pairs Shortest Path】">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1single-source-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）Single-Source Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）DP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#18x-lesson-8dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.8.x] Lesson 8——Dynamic Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.8.x] Lesson 8——Dynamic Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#181x-dptheory" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.8.1.x] DP——Theory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#182x-dpinstants" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.8.2.x] DP——Instants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.8.2.x] DP——Instants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fibonacci-numbers-fn-fn-1-fn-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Fibonacci Numbers: F(N) = F(N – 1) + F(N – 2)】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering-matrix-multiplying" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Ordering Matrix Multiplying】
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【Ordering Matrix Multiplying】">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1norder" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）N个矩阵相乘有多少种order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2n" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）N个矩阵相乘化为两个两个最优子矩阵相乘
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimal-binary-search-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Optimal Binary Search Tree】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-pairs-shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      【All-Pairs Shortest Path】
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【All-Pairs Shortest Path】">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1single-source-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）Single-Source Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      （2）DP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Dynamic Programming</h1>
+
+<h2 id="18x-lesson-8dynamic-programming">[1.8.x] Lesson 8——Dynamic Programming</h2>
+<blockquote>
+<p>如果一个问题的最优解是通过<strong>组合对子问题的最优解</strong>以及<strong>从这些组合中选择Min/Max</strong>, 那么这种范式就是<strong>动态规划</strong>的范式；</p>
+<p><font style="color:#DF2A3F;">本质是 </font><strong><font style="color:#DF2A3F;">K规模 问题</font></strong><font style="color:#DF2A3F;">完全依赖于调用 </font><strong><font style="color:#DF2A3F;">(K-1)规模 问题</font></strong><font style="color:#DF2A3F;">；</font></p>
+</blockquote>
+<h3 id="181x-dptheory">[1.8.1.x] DP——Theory</h3>
+<p>DP的两个元素
+- <strong>optimal sub-structure-最优子结构</strong>
+- <strong>overlapping sub-problem-重叠子问题</strong></p>
+<p>DP的关键在于确定"<strong>状态</strong>"和"<strong>状态转移方程</strong>", 其基本流程是：
+1. 找到最优子结构，确定重叠子问题
+2. 用$sub-solution$递归地设计解决方法
+3. 将递归范式转化为$DP$范式
+4. 如果需要的话，记录一些额外信息</p>
+<p>Tip 1：先确定解决问题的第一步或者最后一步，再倒推前一步的思路；</p>
+<p>Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些从小变大的量；</p>
+<h3 id="182x-dpinstants">[1.8.2.x] DP——Instants</h3>
+<h4 id="fibonacci-numbers-fn-fn-1-fn-2">【Fibonacci Numbers:  F(N) = F(N – 1) + F(N – 2)】</h4>
+<p><img alt="alt" src="../assets/image.png" /></p>
+<p>递归复杂度：\$O(2^N)\$</p>
+<p>原因：递归中有大量重复计算；</p>
+<ol>
+<li>DP法一：用<u>表记录</u>下已经计算过的斐波那契数，后面需要重复用时直接查表；</li>
+<li>DP法二：如左图，不用递归，类似<u>左脚踩右脚</u>的方法，记录最近的两个数，自底向上；</li>
+</ol>
+<h4 id="ordering-matrix-multiplying">【Ordering Matrix Multiplying】</h4>
+<p><img alt="alt" src="../assets/image2.png" /></p>
+<p>不同计算顺序下，矩阵乘法的计算量有显著差异；</p>
+<p>如何找出最优的矩阵乘法顺序？</p>
+<h5 id="1norder">（1）N个矩阵相乘有多少种order</h5>
+<p><img alt="alt" src="../assets/image3.png" /></p>
+<h5 id="2n">（2）N个矩阵相乘化为两个两个最优子矩阵相乘</h5>
+<p>🌹<em><strong><u><font style="color:#DF2A3F;">最优子结构：全局最优解依赖于各自独立的局部最优解</font></u></strong></em></p>
+<p><img alt="alt" src="../assets/image4.png" /></p>
+<p>$m_{ij}$表示原问题的一个泛化，称为”状态“</p>
+<p>具体代码实现，时间复杂度为<img alt="alt" src="../assets/image5.svg" /></p>
+<pre><code class="language-c">/* r contains number of columns for each of the N matrices */ 
+/* r[ 0 ] is the number of rows in matrix 1 */ 
+/* Minimum number of multiplications is left in M[ 1 ][ N ] */ 
+void OptMatrix( const long r[ ], int N, TwoDimArray M ) 
+{   int  i, j, k, L; 
+    long  ThisM; 
+    for( i = 1; i &lt;= N; i++ )   M[ i ][ i ] = 0; 
+    for( k = 1; k &lt; N; k++ ) /* k = j - i */ 
+        for( i = 1; i &lt;= N - k; i++ ) { /* For each position */ 
+    j = i + k;    M[ i ][ j ] = Infinity; 
+    for( L = i; L &lt; j; L++ ) { 
+        ThisM = M[ i ][ L ] + M[ L + 1 ][ j ] 
+            + r[ i - 1 ] * r[ L ] * r[ j ]; 
+        if ( ThisM &lt; M[ i ][ j ] )  /* Update min */ 
+        M[ i ][ j ] = ThisM; 
+    }  /* end for-L */
+        }  /* end for-Left */
+}
+</code></pre>
+<h4 id="optimal-binary-search-tree">【Optimal Binary Search Tree】</h4>
+<blockquote>
+<p>最优二叉搜索树，最优的静态搜索（没有插入和删除）
+</p>
+</blockquote>
+<p><img alt="alt" src="../assets/image6.png" /></p>
+<p><img alt="alt" src="../assets/image7.png" /></p>
+<p>从左图可以看出：</p>
+<ol>
+<li>DP过程应该使用二维数组：<ol>
+<li>存储当前规模下的最优解和最优解的根节点；</li>
+<li>寻找最优解的过程需要遍历 i j 之间的所有点；</li>
+</ol>
+</li>
+<li>构建OBST需要倒推所有根节点；</li>
+</ol>
+<h4 id="all-pairs-shortest-path">【All-Pairs Shortest Path】</h4>
+<h5 id="1single-source-algorithm">（1）Single-Source Algorithm</h5>
+<p>用Dijkstra算法等单源最短路径算法，对每个节点用一次，时间复杂度为<img alt="alt" src="../assets/image8.svg" />，稀疏图更快；</p>
+<h5 id="2dp">（2）DP</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>
