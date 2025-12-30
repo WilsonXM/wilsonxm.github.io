@@ -1,6 +1,6 @@
 site_name: WilsonXM's Notebook
 nav:
-  - 主页: index.md
-  - <Subjects>:
-    - <ADS>:
-      - <>: Dynamic Programming.md
+  - "主页": index.md
+  - "Subjects":
+    - "ADS":
+      - Dynamic Programming.md
