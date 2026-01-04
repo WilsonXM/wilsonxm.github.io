@@ -1,0 +1,1572 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Dynamic%20Programming/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>🤡[未完待补]高级数据结构与算法分析 - WilsonXM's Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#0x" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WilsonXM&#39;s Notebook" class="md-header__button md-logo" aria-label="WilsonXM's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WilsonXM's Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🤡[未完待补]高级数据结构与算法分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WilsonXM&#39;s Notebook" class="md-nav__button md-logo" aria-label="WilsonXM's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    WilsonXM's Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Subjects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Subjects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ADS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            ADS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dynamic%20Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    🤡[未完待补]高级数据结构与算法分析
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    🤡[未完待补]高级数据结构与算法分析
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0x" class="md-nav__link">
+    <span class="md-ellipsis">
+      [0.x] 课程要求
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11x-lesson-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.x] Lesson 1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.x] Lesson 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111x-avl-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.1.x] AVL Tree——平衡二叉树之一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112x-splay-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.2.x] Splay Tree——平衡二叉树之二
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113x-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.3.x] Amortized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12x-lesson-2_" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.2.x] Lesson 2_陌生的天花板👹
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.x] Lesson 2_陌生的天花板👹">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121x-avl" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.2.1.x] 红黑树——AVL树变种
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13x-lesson-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.3.x] Lesson 3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.3.x] Lesson 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131x-b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.3.1.x] B+ Tree——奇怪的查找树
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132x-inverted-file-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.3.2.x] Inverted File Index
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14x-lesson-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.4.x] Lesson 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.4.x] Lesson 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141x-leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.4.1.x] Leftist Heaps——为了加速堆的合并
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142x-skew-heapsleftist-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.4.2.x] Skew Heaps——leftist heap的简单版本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15x-lesson-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.5.x] Lesson 5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.5.x] Lesson 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151x-binomial-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.5.1.x] Binomial Queue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16x-lesson-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.6.x] Lesson 6
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.6.x] Lesson 6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161x-backtrackingtheory" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.6.1.x] Backtracking——Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.6.1.x] Backtracking——Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-pruningminmax" class="md-nav__link">
+    <span class="md-ellipsis">
+      【 α - β pruning】MinMax剪枝中的常见策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162x-backtrackinginstants" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.6.2.x] Backtracking——Instants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.6.2.x] Backtracking——Instants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      【八皇后问题】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-turnpike-reconstruction-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      【The Turnpike Reconstruction Problem】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tic-tac-toe" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Tic-tac-toe】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eight-digits" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Eight Digits】
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17x-lesson-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.7.x] Lesson 7
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.7.x] Lesson 7">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171x-divide-and-conquertheory" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.7.1.x] Divide and Conquer——Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.7.1.x] Divide and Conquer——Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defination" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Defination】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      【求解递推式】
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【求解递推式】">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#substitution-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Substitution method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursion-tree-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursion-tree method——帮助猜测结果，最终证明要用数归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172x-divide-and-conquerinstants" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.7.2.x] Divide and Conquer——Instants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.7.2.x] Divide and Conquer——Instants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      【简单例子】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closest-points-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Closest Points Problem】
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0x" class="md-nav__link">
+    <span class="md-ellipsis">
+      [0.x] 课程要求
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11x-lesson-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.x] Lesson 1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.1.x] Lesson 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111x-avl-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.1.x] AVL Tree——平衡二叉树之一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112x-splay-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.2.x] Splay Tree——平衡二叉树之二
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113x-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.1.3.x] Amortized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12x-lesson-2_" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.2.x] Lesson 2_陌生的天花板👹
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.2.x] Lesson 2_陌生的天花板👹">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121x-avl" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.2.1.x] 红黑树——AVL树变种
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13x-lesson-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.3.x] Lesson 3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.3.x] Lesson 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131x-b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.3.1.x] B+ Tree——奇怪的查找树
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132x-inverted-file-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.3.2.x] Inverted File Index
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14x-lesson-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.4.x] Lesson 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.4.x] Lesson 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141x-leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.4.1.x] Leftist Heaps——为了加速堆的合并
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142x-skew-heapsleftist-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.4.2.x] Skew Heaps——leftist heap的简单版本
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15x-lesson-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.5.x] Lesson 5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.5.x] Lesson 5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151x-binomial-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.5.1.x] Binomial Queue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16x-lesson-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.6.x] Lesson 6
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.6.x] Lesson 6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161x-backtrackingtheory" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.6.1.x] Backtracking——Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.6.1.x] Backtracking——Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-pruningminmax" class="md-nav__link">
+    <span class="md-ellipsis">
+      【 α - β pruning】MinMax剪枝中的常见策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162x-backtrackinginstants" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.6.2.x] Backtracking——Instants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.6.2.x] Backtracking——Instants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      【八皇后问题】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-turnpike-reconstruction-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      【The Turnpike Reconstruction Problem】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tic-tac-toe" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Tic-tac-toe】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eight-digits" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Eight Digits】
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17x-lesson-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.7.x] Lesson 7
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.7.x] Lesson 7">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#171x-divide-and-conquertheory" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.7.1.x] Divide and Conquer——Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.7.1.x] Divide and Conquer——Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defination" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Defination】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      【求解递推式】
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="【求解递推式】">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#substitution-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Substitution method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recursion-tree-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursion-tree method——帮助猜测结果，最终证明要用数归
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#172x-divide-and-conquerinstants" class="md-nav__link">
+    <span class="md-ellipsis">
+      [1.7.2.x] Divide and Conquer——Instants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[1.7.2.x] Divide and Conquer——Instants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      【简单例子】
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#closest-points-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      【Closest Points Problem】
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>🤡[未完待补]高级数据结构与算法分析</h1>
+
+<h2 id="0x">[0.x] 课程要求</h2>
+<ul>
+<li>[ ] <font style="color:#000000;">AVL树的</font><font style="color:#000000;">delete</font><font style="color:#000000;">操作</font></li>
+<li>[ ] 均摊分析课后习题</li>
+<li>[ ] B+树的删除</li>
+<li>[ ] backtracking课后习题</li>
+<li>[ ] 实现各种数据结构：尤其是AVL/Splay/红黑树</li>
+<li>[ ] 阅读并完成算法分析导论中关于分治算法的时间复杂度分析的原理及例题</li>
+<li>[ ] 代码实现DP中的OBST</li>
+</ul>
+<h2 id="11x-lesson-1">[1.1.x] Lesson 1</h2>
+<h3 id="111x-avl-tree">[1.1.1.x] AVL Tree——平衡二叉树之一</h3>
+<p>为了防止出现——按某种序列Insert后出现极端情况的BST树——的情况而需要添加balance的条件，而AVL就是一种比较古老的平衡条件</p>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">一棵AVL树是其每个节点的</font><strong><font style="color:#000000;">左子树和右子树的高度最多差一的BST</font></strong><font style="color:#DF2A3F;">（空树的高度定义为-1）</font></p>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">Balance Factor：</font><strong><font style="color:#000000;">BF(node) = Height(left) - Height(right)</font></strong></p>
+<p><font style="color:#000000;">   所以在一棵AVL树中，BF（node）为</font><strong><font style="color:#000000;">1，-1，0</font></strong></p>
+<p><strong><font style="color:#DF2A3F;">📣</font></strong> <strong><font style="color:#DF2A3F;">注意：</font></strong></p>
+<ol>
+<li><font style="color:#000000;">AVL树是一种特殊的BST，所以</font><strong><font style="color:#000000;">兼容所有BST的特性</font></strong><font style="color:#000000;">；</font></li>
+<li><font style="color:#000000;">AVL树多了</font><strong><font style="color:#000000;">平衡</font></strong><font style="color:#000000;">的限制，所以进行</font><strong><font style="color:#000000;">“增、删、改、查”</font></strong><font style="color:#000000;">的操作时需要额外保持</font><strong><font style="color:#000000;">平衡</font></strong></li>
+</ol>
+<blockquote>
+<p><strong>Tree rotation</strong> is an operation on a binary tree that changes the structure without interfering with the order of the elements.
+</p>
+</blockquote>
+<p><strong><font style="color:#000000;">rotation</font></strong><font style="color:#000000;">使我们能在</font><strong><font style="color:#DF2A3F;">“增”</font></strong><font style="color:#000000;">时保持AVL树的性质，假设我们需要重新平衡的节点为α，则α“不平衡”的情况有以下四种：</font></p>
+<ol>
+<li><font style="color:#0C68CA;">对α的左儿子的左子树进行一次插入——外侧单旋转</font></li>
+<li><font style="color:#ED740C;">对α的左儿子的右子树进行一次插入——内侧双旋转</font></li>
+<li><font style="color:#ED740C;">对α的右儿子的左子树进行一次插入——内侧双旋转</font></li>
+<li>
+<p><font style="color:#0C68CA;">对α的右儿子的右子树进行一次插入——外侧单旋转</font></p>
+</li>
+<li>
+<p><strong>单旋转</strong></p>
+</li>
+</ol>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678014010640-f17d3ae9-8d1f-490d-8347-7f980f365c7e.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678014568205-d70cff50-9554-4957-bf4f-3311c808f699.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678014625486-bd9e78c7-16df-4410-9728-d34094f588c9.png" /></p>
+<ul>
+<li><strong>双旋转</strong></li>
+</ul>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678014871504-c2feef9c-e506-47f2-abf7-7f0d7ea973cd.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678014901932-27d7208b-d221-4818-9ee2-f4bfa4271bc0.png" /></p>
+<p><strong><font style="color:#DF2A3F;">📣</font></strong> <strong><font style="color:#DF2A3F;">注意：</font></strong></p>
+<ol>
+<li><strong><font style="color:#000000;">节点之间的左右关系不会改变</font></strong></li>
+<li><strong><font style="color:#000000;">双旋转</font></strong><strong><font style="color:#DF2A3F;">关注</font></strong><strong><font style="color:#000000;">造成不平衡的插入节点在左子树还是右子树</font></strong></li>
+<li><strong><font style="color:#DF2A3F;">关注</font></strong> <strong><font style="color:#000000;">被旋转的节点——B(单)/C(双)</font></strong></li>
+</ol>
+<p>h到底是多少？<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678022841530-45658ce4-80fc-483c-9331-1cadd15b1b17.png" /></p>
+<h3 id="112x-splay-tree">[1.1.2.x] Splay Tree——平衡二叉树之二</h3>
+<p>为了使<strong>BST</strong>在进行<font style="color:#DF2A3F;">“查/删”</font>时保持<strong>摊还分析</strong>下的对数时间复杂度（至于为什么要保持摊还分析下的而不是平均或最坏见第三部分），对BST的查找操作进行改造，称为“splay(伸展)”</p>
+<blockquote>
+<p>个人觉得思想上十分类似并查集的“路径压缩”
+</p>
+</blockquote>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678024283720-92386d07-7aa2-471a-ad50-50ea6f7710c3.png" /></p>
+<p><strong><font style="color:#DF2A3F;">📣</font></strong> <strong><font style="color:#DF2A3F;">注意：Zig-zag可以转化成case1，Zig-zig不行</font></strong></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678024367434-7ef65e0e-91d7-4e92-bc57-bf611890244e.png" /></p>
+<h3 id="113x-amortized-analysis">[1.1.3.x] Amortized Analysis</h3>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678024810306-90bd7e7b-9116-48c1-9eb4-6617c1a81327.png" /></p>
+<p><strong>均摊分析有三种方法：Aggregate analysis、Accounting method、Potential method</strong></p>
+<ul>
+<li><strong>Aggregate analysis（聚合法）</strong><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678027105198-c238b6e0-932c-4f20-b8b8-7ec84a75a49c.png" /></li>
+</ul>
+<p>考虑下面的例子：</p>
+<p>关键思想：每个被push的元素只能被pop一次，将n个元素看作整体<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678025132573-c7f4e20f-abcb-4a5d-9624-c8d7801345bb.png" /></p>
+<p>也就是说，<strong><font style="color:#DF2A3F;">最坏情况不会连续出现，将所有元素看作整体分析</font></strong></p>
+<p><strong><font style="color:#DF2A3F;"></font></strong></p>
+<ul>
+<li><strong>Accounting method</strong><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678027485626-73f6de2a-a91c-402f-b233-6d3b92d16b92.png" /></li>
+</ul>
+<p>考虑例子：买股票或者存钱，原则是<strong>不能亏钱</strong></p>
+<p>关键思想：即使每天或盈或亏，但只要一段时间内总体上不少于本金就可以接受<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678027875977-a48df5ca-8635-4066-8ded-7d99e9aae41e.png" /></p>
+<p>也就是说，<strong><font style="color:#DF2A3F;">credit之和大于等于0</font></strong></p>
+<p><strong><font style="color:#DF2A3F;"></font></strong></p>
+<ul>
+<li><strong>Potential method</strong></li>
+</ul>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1678169686605-e577a5a7-f994-475d-b204-21460b2ae470.png" /></p>
+<p>考虑到accounting method中需要为每种操作都设计一个均摊代价，对有大量操作的情况很不方便，所以势能法中只需要设计一个势能函数F(Di)，其中Di指的是对象的状态；</p>
+<p>考虑例子：<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1679148924926-9dc85765-ffd2-4dea-aae9-991ae91e9e34.png" /></p>
+<p>其中使用了引理：</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1679149004642-94700660-b5a0-4fa4-b4b1-e9b281cf5503.png" /></p>
+<h2 id="12x-lesson-2_"><font style="color:#DF2A3F;">[1.2.x] Lesson 2_陌生的天花板</font><font style="color:#DF2A3F;">👹</font></h2>
+<h3 id="121x-avl">[1.2.1.x] 红黑树——AVL树变种</h3>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">满足下面</font><strong>五条性质</strong>的 <strong><font style="color:#DF2A3F;">BST</font></strong> 称为红黑树：</p>
+<ol>
+<li>每个节点<strong>非红即黑</strong>；</li>
+<li><strong>根</strong>节点必须着<strong>黑色</strong>；</li>
+<li>每个叶子节点为<strong>黑色</strong> <strong><font style="color:#DF2A3F;">(NIL/NULL)</font></strong>；</li>
+<li><strong><font style="color:#DF2A3F;">红色节点的儿子必须是黑色的；</font></strong></li>
+<li><strong>从任意节点开始到叶子节点上的所有路径上包含相同数量的黑色节点；</strong></li>
+</ol>
+<p><strong><font style="color:#DF2A3F;">📣</font></strong> <strong><font style="color:#DF2A3F;">注意：</font></strong></p>
+<ol>
+<li>性质c中的“叶子节点”指的是哨兵节点(外部节点)；</li>
+<li>性质e<font style="color:rgb(0, 0, 0);">确保没有一条路径会比其他路径长出俩倍。因而，红黑树是相对是接近平衡的二叉树；</font></li>
+</ol>
+<p><strong><font style="color:#000000;">【Definition】</font></strong> The black-height of any node x——<strong>bh(x)</strong>, is the number of black nodes on any simple path from x <strong>(x not included) </strong>down to a leaf.  <strong>bh(Tree) = bh(root).</strong></p>
+<p><strong><font style="color:#000000;">【Definition】</font></strong> A red-black tree with N internal nodes has height at most 2ln(N +1).</p>
+<p><strong>【Find】</strong> 等同普通的BST</p>
+<p><strong>【Insert】</strong></p>
+<p>📢<font style="color:#601BDE;">这是一个侄子和叔叔之间的故事——可称之为</font><strong><font style="color:#601BDE;">”叔侄不相容定律“</font></strong></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1679243488584-8eb2f27c-c387-4872-b9a6-9b00b00a2140.png" /></p>
+<ol>
+<li>为什么经过这些操作后还是一个红黑树？</li>
+<li>时间复杂度为什么是O(height)？</li>
+<li><strong>自底向上和自顶向下的实现方法有哪些不同？</strong><em><u><font style="color:#DF2A3F;">自顶向下需要对case-1进行迭代</font></u></em></li>
+</ol>
+<p><strong><font style="color:#DF2A3F;">📣</font></strong> <strong><font style="color:#DF2A3F;">注意：只有case-1会进入循环，case-2会转化为case-3，而case-3直接解决问题；</font></strong></p>
+<p><strong>【Delete】</strong></p>
+<p>删除有三种情况：</p>
+<ol>
+<li>叶子节点：直接删除；</li>
+<li>degree=1节点：交换儿子和本身的键值，然后删除儿子；</li>
+<li>degree=2节点：
+        1. 交换该节点与其左子树的最大值或右子树的最小值；
+        2. 删除被交换的叶子节点；</li>
+</ol>
+<p><strong>综上，所有删除操作均可转化为删除一个叶子节点；而删除红色节点不破坏性质，因此只考虑删除黑色；</strong></p>
+<p>为了保持被删除节点所在的子树的性质5不被破坏，我们选择在被删除节点上增加一重黑色，下面考虑在此基础上的四种情况；</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1681045141917-be4524c2-9aac-4f82-8d84-2cbd2442a4b6.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1681045157040-103f2df4-3ff0-4332-b089-5468b87a325b.png" /></p>
+<p>可参考的其他文章：1. <a href="https://zhuanlan.zhihu.com/p/438685053">自顶向下红黑树 C语言实现——知乎</a></p>
+<ol>
+<li><a href="https://blog.csdn.net/yw8355507/article/details/48932359">详细对比自顶向下与自底向上红黑树-C实现自顶向下插入与删除——CSDN</a></li>
+</ol>
+<h2 id="13x-lesson-3">[1.3.x] Lesson 3</h2>
+<h3 id="131x-b-tree">[1.3.1.x] B+ Tree——奇怪的查找树</h3>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">满足下面</font><strong>结构性质</strong>的树称为<strong>阶为M的B+树</strong>：</p>
+<ol>
+<li>树的根或者是叶子，或者其儿子数在<img alt="image" src="https://cdn.nlark.com/yuque/__latex/52ddbf6d23ed5d652186214524cca1ab.svg" />之间；</li>
+<li>除根外，所有非树叶节点的儿子数在<img alt="image" src="https://cdn.nlark.com/yuque/__latex/893f21f52779dc917606562af5dc2ed3.svg" />和 M 之间；</li>
+<li>所有的树叶都在相同的深度上；</li>
+<li><strong>Assume each nonroot leaf also has between </strong><img alt="image" src="https://cdn.nlark.com/yuque/__latex/893f21f52779dc917606562af5dc2ed3.svg" /><strong> and M elements.</strong></li>
+<li><strong>所有数据存储在叶子节点上；</strong></li>
+<li><strong>所有内部节点上均含有：</strong>
+                    1. 指向该节点各儿子的指针<img alt="image" src="https://cdn.nlark.com/yuque/__latex/4388a1a0d73c0c49113b1c52e0952388.svg" /><font style="color:#585A5A;">(可能有NULL)</font>;
+                    2. 分别代表在子树<img alt="image" src="https://cdn.nlark.com/yuque/__latex/7fad1f8204d0d7b82259281334c5791a.svg" />中的最小键值<img alt="image" src="https://cdn.nlark.com/yuque/__latex/3e91748af247c655f9606782b689335a.svg" />；</li>
+<li>所有树叶的<strong>内部和树叶之间</strong>，键值都是<strong>从左到右严格递增</strong>的；</li>
+</ol>
+<p>【Find】</p>
+<p>和BST类似，内部节点上的<img alt="image" src="https://cdn.nlark.com/yuque/__latex/3b5a412b93db6cc3b3ec8f82c0d5175e.svg" />个键值正好将其所有子节点上的偏序数据分为M块，因此B+树的查询操作的时间复杂度为<img alt="image" src="https://cdn.nlark.com/yuque/__latex/aedc5612ca10bafedc0b8b652c5f8b3c.svg" />；</p>
+<p>【Insert】</p>
+<p>和BST类似，需要进行回溯更新内部节点键值；</p>
+<p>冲突解决方法（若节点的children个数超过限制）：</p>
+<pre><code>        1. 分裂该节点，并向上递归更新；
+</code></pre>
+<p>优化方法：</p>
+<pre><code>        1. 探查同一父亲的其他子树中是否还有空间；
+        2. 兄弟子树均饱和后再进行分裂；
+</code></pre>
+<h3 id="132x-inverted-file-index">[1.3.2.x] Inverted File Index</h3>
+<h2 id="14x-lesson-4">[1.4.x] Lesson 4</h2>
+<h3 id="141x-leftist-heaps">[1.4.1.x] Leftist Heaps——为了加速堆的合并</h3>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">满足下列性质的二叉树</font>称为左倾堆（树）（leftist heaps）：</p>
+<p><em><u>堆序性质：与二叉堆相同，可分为最小堆/最大堆；</u></em></p>
+<p><strong><font style="color:#000000;">【Definition】</font></strong> The null path length, Npl(X), of any node X is the length of the shortest path from X to a node without two children.  Define Npl(NULL) = –1.</p>
+<p><strong><font style="color:#DF2A3F;">【NOTE】</font></strong><img alt="image" src="https://cdn.nlark.com/yuque/__latex/b7e9d66682b13e0bd641a96310224f73.svg" /></p>
+<p><u>结构性质：对堆中的每个节点X，其左右儿子满足 </u> <img alt="image" src="https://cdn.nlark.com/yuque/__latex/c622147496b0ab45893029f0b3d8e336.svg" />；</p>
+<p><strong><font style="color:#000000;">【Theorem】</font></strong> A leftist tree with<img alt="image" src="https://cdn.nlark.com/yuque/__latex/72cb3a229067770aeb6caa625a65a1a1.svg" />nodes on the right path must have at least <img alt="image" src="https://cdn.nlark.com/yuque/__latex/8163fb994886fa6f274cf84c639d2641.svg" /> nodes.</p>
+<p><strong>【Note】</strong> The leftist tree of<img alt="image" src="https://cdn.nlark.com/yuque/__latex/459f3c80a50b7be28751b0869ef5386a.svg" />nodes has a right path containing at most<img alt="image" src="https://cdn.nlark.com/yuque/__latex/23d3e862f319885ec3cc18176f4f18b8.svg" />nodes.</p>
+<p><strong>【Merge】——O(logN)</strong></p>
+<p>--recursive version</p>
+<ol>
+<li>Merge( H1-&gt;Right, H2 )-&gt;递归入口</li>
+<li>Attach( H2, H1-&gt;Right )</li>
+<li>Swap(H1-&gt;Right, H1-&gt;Left ) if necessary</li>
+<li>递归出口-&gt;Merge时出现一棵空树</li>
+</ol>
+<p>--iteration version</p>
+<ol>
+<li>Sort the right paths without changing their left children；</li>
+<li>Swap children if necessary；</li>
+</ol>
+<p>注意：自底向上Swap更新，如果自顶向下Swap会改变right path上的节点使得下一步没法进行下去；</p>
+<p><strong>【DeleteMin】</strong></p>
+<ol>
+<li>delete the root;</li>
+<li>merge the two subtrees of the original root;</li>
+</ol>
+<h3 id="142x-skew-heapsleftist-heap">[1.4.2.x] Skew Heaps——leftist heap的简单版本</h3>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">满足下列性质的二叉树</font>称为斜堆（skew heaps）：</p>
+<p><em><u>堆序性质：与二叉堆相同，可分为最小堆/最大堆；</u></em></p>
+<p><em><u>结构性质：每次Merge操作都交换左右子树，除非当前节点是右路径上的最大节点；</u></em></p>
+<p><strong>【Advantage】</strong>：Skew heaps have the advantage that no extra space is required to maintain path lengths and no tests are required to determine when to swap children.</p>
+<p><strong>【Note】</strong>：It is an open problem to determine precisely the expected right path length of both leftist and skew heaps.</p>
+<p><a href="https://www.cnblogs.com/halifuda/p/14364632.html"><strong>🔗</strong> <strong>如何用均摊分析证明其时间复杂度？？？</strong></a></p>
+<p><strong>有几个难点：</strong></p>
+<ol>
+<li><strong>势能函数的构造方法；其他方法为什么不行？</strong></li>
+<li><strong>右路径上轻重节点合并后的转换；</strong></li>
+<li><strong>轻节点的渐进上界？出现重节点不会减少右路径上轻节点的个数；</strong></li>
+</ol>
+<h2 id="15x-lesson-5">[1.5.x] Lesson 5</h2>
+<h3 id="151x-binomial-queue">[1.5.1.x] Binomial Queue</h3>
+<p><strong>【目的】</strong></p>
+<p>在左偏树和斜堆中插入一个元素的时间复杂度为O(logN)，但是构建一个N个元素二叉堆的时间复杂度为O(N)，均摊到每个元素就是O(1)，因此二项队列的目的是达到常数时间的插入操作并保持较好的合并操作复杂度；</p>
+<p><strong><font style="color:#000000;">【Definition】</font></strong><font style="color:#000000;">满足下列性质树称为二项队列（Binomial Queue）</font>：</p>
+<ol>
+<li>满足堆的顺序性质，最小元素/最大元素；</li>
+<li>结构性质上，二项队列不是一棵堆序树，而是堆序树的森林，此时森林中的每棵树被称为二项树</li>
+</ol>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682153081850-082db9cd-d2c8-41e4-8adf-e4ea458d2a28.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682153145765-bea11df1-ca60-4e0b-95e8-0e76d5129ee9.png" /></p>
+<p>方法：将size表示为二进制数</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682153271358-d3229e00-2042-4199-9593-1ecfb11ebaee.png" /></p>
+<p><strong>【FindMin】</strong></p>
+<p>Solution1：最小元素存在于森林中的树根上，所以遍历树根，时间复杂度为O(logN);</p>
+<p>Solution2：维护一个最小元素，在进行merge或者delete操作时更新；</p>
+<p><strong>【Merge】</strong></p>
+<p>基本思想：合并高度相同的树，<strong>类似二进制加法</strong>；&gt;&gt; 二项队列中的树需保持高度排序</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682153956359-75f77f2a-75a1-453f-ab1b-1a2dd959a254.png" /></p>
+<p><strong>【DeleteMin】</strong></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682154123828-a98869bc-e9ee-4732-be63-c58afffe42db.png" /></p>
+<p><strong>【Implemention】</strong></p>
+<p>要求：数组实现</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682154257347-e42d3817-e09f-4e32-be3c-344869d07103.png" /></p>
+<p>Q1：为何选择”左儿子右兄弟“而不是普通的二叉树？</p>
+<p>A1：因为二项队列的目的在于简化查询操作，不在意访问队列中的任意一个元素，所以只需要左儿子右兄弟；</p>
+<p>Q2：为何选择从左到右从大到小的高度安排？</p>
+<p>A2：从merge操作考虑，两个高度相同的树相连，从小到大意味着需要遍历其中一个树的所有子树从而找到最大的那个，并将新的最大子树塞进去，而从大到小只需要直接将根节点较大的子树放在开头就行；</p>
+<p>从delete角度考虑，删除一个元素后，不管是高到低还是低到高都需要将被删除最小root的树中的所有字数都遍历一遍放入队列中，因此没有区别；</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682155663754-3062cbfb-f215-440e-a0ee-93df219c98e6.png" /></p>
+<h2 id="16x-lesson-6">[1.6.x] Lesson 6</h2>
+<h3 id="161x-backtrackingtheory">[1.6.1.x] Backtracking——Theory</h3>
+<blockquote>
+<p>解决一个问题的可靠想法是穷举所有可能情况，逐一验证，排除错误情况，找到所有正确的答案，但是这样的方法不仅效率极低，而且对可能情况很多的问题耗时过大，因此我们需要更聪明的方法。
+</p>
+</blockquote>
+<p><font style="color:#000000;">【基本思想】</font><strong><font style="color:#000000;">回溯</font></strong><font style="color:#000000;">使我们能够</font><strong><u><font style="color:#000000;">中途结束</font></u></strong><u><font style="color:#000000;">对某些已知不可能情况的</font></u><strong><u><font style="color:#000000;">彻底的</font></u></strong><u><font style="color:#000000;">显示检查</font></u><font style="color:#000000;">（pruning：在一步内删除一大组可能性）；</font></p>
+<p><font style="color:#000000;">【基本方法】</font></p>
+<ol>
+<li><font style="color:#000000;">设已有部分答案</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/6608ef326fc3e1e66e9f3abc32503a21.svg" /><font style="color:#000000;">，其中</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/0c8cfc4294fd618b7366e5e35848cc54.svg" /><font style="color:#000000;">，</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/3b7242decb472f1840e1dca1b5bf9298.svg" /><font style="color:#000000;">；</font></li>
+<li><font style="color:#000000;">将</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/499a183d3a92bd8f0b55396475115ad3.svg" /><font style="color:#000000;">加入到答案中，检查</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/d3c9878198bed767d23038310686058b.svg" /><font style="color:#000000;">是否可能</font><font style="color:#8A8F8D;">(satisfy the constraints)</font><font style="color:#000000;">：</font><ol>
+<li><font style="color:#000000;">若可能，则继续加入下一个</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/712ecf7894348e92d8779c3ee87eeeb0.svg" /><font style="color:#000000;">;</font></li>
+<li><font style="color:#000000;">若不可能，则从答案中删除</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/ceeae4d8dd65af10cffc8a6f162c7b78.svg" /><font style="color:#000000;">，并尝试下一个</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/1afbf9112ce2cc85113e634e4f4cf86f.svg" /><font style="color:#000000;">；如果所有的</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/788c13d6ce6d94ccdc4a136055161c9f.svg" /><font style="color:#000000;">都不满足条件，则回溯到答案</font><img alt="image" src="https://cdn.nlark.com/yuque/__latex/91510e5a8aa8fa115b32cd21610342ca.svg" /><font style="color:#000000;">；</font></li>
+</ol>
+</li>
+</ol>
+<p>【Template代码】</p>
+<pre><code class="language-c">/* 参数 i 表示当前答案的规模 */
+bool Backtracking ( int i )
+{   Found = false;
+    if ( i &gt; N )
+        return true; /* solved with (x1, …, xN) */
+    for ( each xi in Si ) { 
+        /* check if satisfies the restriction R */
+        OK = Check((x1, …, xi) , R ); /* pruning */
+        if ( OK ) {
+            Count xi in;
+            Found = Backtracking( i+1 );
+            if ( !Found )
+                Undo( i ); /* recover to (x1, …, xi-1) */
+        }
+        if ( Found ) break; 
+    }
+    return Found;
+}
+</code></pre>
+<h4 id="-pruningminmax">【 α - β pruning】MinMax剪枝中的常见策略</h4>
+<p>以α-剪枝为例，在44的位置我们需要一个最大值，而在40的level对方会选择最小值，此时如果我们探测到40的左儿子是40则不需要继续探测右儿子，因为如果右儿子小于40，则44的右儿子会比40小，那么最大值就是左儿子44，如果40的右儿子大于40，则44的右儿子还是40，则根节点选最大值依然是44，故可以直接剪枝；β-剪枝同理相反；</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682673708642-ca8f2eb5-7de8-4aa3-a677-67a926e6a76f.png" /><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682673723844-8a42c786-199c-4114-8f89-8996da6d1b03.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682673760611-c9651485-8064-4943-8ae4-fb12cdbec855.png" /></p>
+<h3 id="162x-backtrackinginstants">[1.6.2.x] Backtracking——Instants</h3>
+<h4 id="_1">【八皇后问题】</h4>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682662237209-8d653cf4-fb49-411c-b4b0-dfe8e511d496.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682662691555-d85b36e3-0210-4dd3-b778-79f21b34baa5.png" /><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682662785269-58d7fb63-21b6-40e2-a7d9-ace3a8122517.png" /></p>
+<h4 id="the-turnpike-reconstruction-problem">【The Turnpike Reconstruction Problem】</h4>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682663070022-2476cce7-fb52-4e8d-89e2-c14fa2385af0.png" /></p>
+<p>【解题思路】</p>
+<p>根据给出的距离个数，可以通过<img alt="image" src="https://cdn.nlark.com/yuque/__latex/c81627269b1b93608269c6e12ac89148.svg" />计算出需要的站点个数N，然后关注最大距离可以确定出首尾两个点，其次再寻找次大距离进行迭代；</p>
+<p><u>其中，每增加一个站点，可以通过检查因该站点而新增加的距离是否满足题中的Distance Set剪枝；</u></p>
+<p>若无剪枝，则该算法的时间复杂度为<img alt="image" src="https://cdn.nlark.com/yuque/__latex/dcb40cf8eb6e6302f69c55de1494f3f3.svg" />，首尾元素唯一，中间距离的元素都有两种可能；</p>
+<p>若有剪枝，则</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682664042476-570dc385-cc8b-47d6-bbc6-95ca2aaf0a9e.png" /></p>
+<p>【代码实现】</p>
+<pre><code class="language-c">bool Reconstruct ( DistType X[ ], DistSet D, int N, int left, int right )
+{ /* X[1]...X[left-1] and X[right+1]...X[N] are solved */
+    bool Found = false;
+    if ( Is_Empty( D ) )
+        return true; /* solved */
+    D_max = Find_Max( D );
+    /*//---- option 1：X[right] = D_max ----//*/
+    /* check if |D_max-X[i]| is in D for all X[i]s that have been solved */
+    OK = Check( D_max, N, left, right ); /* pruning */
+    if ( OK ) { /* add X[right] and update D */
+        X[right] = D_max;
+        for ( i=1; i&lt;left; i++ )  Delete( |X[right]-X[i]|, D);      // 从D删去新加入的点产生的新distance
+        for ( i=right+1; i&lt;=N; i++ )  Delete( |X[right]-X[i]|, D);  // 从D删去新加入的点产生的新distance
+        Found = Reconstruct ( X, D, N, left, right-1 );             // 递归下一层
+        if ( !Found ) { /* if does not work, undo */
+            for ( i=1; i&lt;left; i++ )  Insert( |X[right]-X[i]|, D);      // 消除新加入点对D的影响
+            for ( i=right+1; i&lt;=N; i++ )  Insert( |X[right]-X[i]|, D);  // 消除新加入点对D的影响
+        }
+    }
+    /* finish checking option 1 */
+    if ( !Found ) { /* if option 1 does not work */
+        /*//---- option 2: X[left] = X[N]-D_max ----//*/
+        OK = Check( X[N]-D_max, N, left, right );
+        if ( OK ) {
+            X[left] = X[N] – D_max;
+            for ( i=1; i&lt;left; i++ )  Delete( |X[left]-X[i]|, D);       // 从D删去新加入的点产生的新distance
+            for ( i=right+1; i&lt;=N; i++ )  Delete( |X[left]-X[i]|, D);   // 从D删去新加入的点产生的新distance
+            Found = Reconstruct (X, D, N, left+1, right );
+            if ( !Found ) {
+                for ( i=1; i&lt;left; i++ ) Insert( |X[left]-X[i]|, D);        // 消除新加入点对D的影响
+                for ( i=right+1; i&lt;=N; i++ ) Insert( |X[left]-X[i]|, D);    // 消除新加入点对D的影响
+            }
+        }
+        /* finish checking option 2 */
+    } /* finish checking all the options */
+
+    return Found;
+}
+</code></pre>
+<h4 id="tic-tac-toe">【Tic-tac-toe】</h4>
+<p><strong><font style="color:#DF2A3F;">通过选择合适的“估价函数”来评估一方的局面优劣程度</font></strong></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682669301573-016a7c7b-b26f-4a2a-bf92-739612b32468.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682669372659-be984626-1256-4f09-bfb4-d4fff6bcbaf0.png" /></p>
+<h4 id="eight-digits">【Eight Digits】</h4>
+<p>用哈希表存储已经出现过的状态</p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682675929570-ed01ffce-06cf-41b2-b42e-9310649bb6c7.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1682676012583-c13c9f81-33c8-4b4a-9287-66e2d8683745.png" /></p>
+<h2 id="17x-lesson-7">[1.7.x] Lesson 7</h2>
+<blockquote>
+<p>要想搞懂一个算法，要问自己三个问题：</p>
+<ol>
+<li>问题的定义，输入输出？</li>
+<li>算法的步骤？</li>
+<li>算法的复杂度？
+</li>
+</ol>
+</blockquote>
+<h3 id="171x-divide-and-conquertheory">[1.7.1.x] Divide and Conquer——Theory</h3>
+<h4 id="defination">【Defination】</h4>
+<p>Recursively:</p>
+<p><strong>Divide</strong> the problem into a number of sub-problems；</p>
+<p><strong>Conquer</strong> the sub-problems by solving them <u>recursively</u>；</p>
+<p><strong>Combine</strong> the solutions to the sub-problems into the solution for the original problem；</p>
+<p><strong>General recurrence:  </strong><img alt="image" src="https://cdn.nlark.com/yuque/__latex/f738c6cef120f9bd92909d1549cabe07.svg" /></p>
+<h4 id="_2">【求解递推式】</h4>
+<blockquote>
+<p>需要忽略的细节：</p>
+<ol>
+<li>当规模较小时，<img alt="image" src="https://cdn.nlark.com/yuque/__latex/c357ad1246caa893894ca938ac42ba00.svg" />；</li>
+<li><img alt="image" src="https://cdn.nlark.com/yuque/__latex/bda55e326a9e797e18148978ea3b32c6.svg" />是否是整数不影响分析，因此我们将其视为整数；
+</li>
+</ol>
+</blockquote>
+<h5 id="substitution-method"><font style="color:#DF2A3F;">Substitution method</font></h5>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683266247750-246fa969-0801-479e-8a65-51a27ca53997.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683266286917-19af6986-9c00-4447-8a80-3cddb87e0b23.png" /></p>
+<p>先猜，再用数学归纳法证明，但是<strong>数学归纳法证明时要给出的是严格的上界，因此可以存在</strong>-<strong>(缩小上界)，但不能存在</strong>+<strong>(放大上界)</strong>；</p>
+<h5 id="recursion-tree-method"><font style="color:#DF2A3F;">Recursion-tree method——帮助猜测结果，最终证明要用数归</font></h5>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683267389613-3f3209fa-42f7-4032-8e30-3b673a0b9d78.png" /></p>
+<p><img alt="image" src="https://cdn.nlark.com/yuque/__latex/f98648cf2a02c8acd76164cb9e177d8e.svg" /></p>
+<h5 id="master-method"><font style="color:#DF2A3F;">Master method</font></h5>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683272496897-45bdb6e0-b9c2-4d81-ae93-e5cc2e73263d.png" /></p>
+<p>具体证明见《算法导论》第四章</p>
+<p>实际上比的是, <strong><font style="color:#DF2A3F;">合并所有子问题</font></strong> 的开销和 <strong><font style="color:#DF2A3F;">解决所有子问题</font></strong> 的开销；</p>
+<p><em><strong><u><font style="color:#DF2A3F;">注意条件三的附加条件</font></u></strong></em></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683280694445-aecce7a6-7e2d-40c0-b20a-39f0857f3d16.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683280702645-e5a25624-7f22-4310-89f2-3a4c40da01c2.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683280736058-76a31e88-ff43-4949-aa0e-68342dae066b.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683280745894-7312b26e-4ab5-44d3-a6b2-7e42c678e367.png" /></p>
+<h3 id="172x-divide-and-conquerinstants">[1.7.2.x] Divide and Conquer——Instants</h3>
+<h4 id="_3">【简单例子】</h4>
+<ol>
+<li>最大子序列和——<img alt="image" src="https://cdn.nlark.com/yuque/__latex/909348a737b1b9f2bd04efa1563884a6.svg" /></li>
+<li>通过树的遍历构建树——<img alt="image" src="https://cdn.nlark.com/yuque/__latex/8c51f5913186f8ac629f1d5838940f33.svg" /></li>
+<li>归并排序和快排——<img alt="image" src="https://cdn.nlark.com/yuque/__latex/909348a737b1b9f2bd04efa1563884a6.svg" /></li>
+</ol>
+<h4 id="closest-points-problem">【Closest Points Problem】</h4>
+<pre><code>Given N points in a plane.  Find the closest pair of points.  (If two points have the same position, then that pair is the closest with distance 0.)
+</code></pre>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683034836835-efe53317-9d84-4037-b152-5a84b4a71f74.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683034881271-1eb43fff-816f-4aba-a11f-8f4d3666a74d.png" /></p>
+<p>采用分治算法：</p>
+<p>类似于最大子序列的分类方法；考虑<u>左边、右边、横跨左右</u>三种情况，递归的解决左右两边，并在合并时解决横跨两边；</p>
+<p><strong>此时，<img alt="image" src="https://cdn.nlark.com/yuque/__latex/b1568addecafccf24fb7cbfa80591f39.svg" />，时间复杂度为</strong><img alt="image" src="https://cdn.nlark.com/yuque/__latex/347338645467641213003cc8e8ee4544.svg" />；</p>
+<p>因此下面考虑对该算法进行类似剪枝的操作，不必<img alt="image" src="https://cdn.nlark.com/yuque/__latex/0e7a086b7a22ed8c1880fc0e8511c685.svg" />次遍历；</p>
+<p><strong>第一次剪枝：</strong></p>
+<ol>
+<li>先递归解决左右两边规模为<img alt="image" src="https://cdn.nlark.com/yuque/__latex/23b1aa27b1426f8b29c228ddc0ec9d85.svg" />的点，找出此时最小距离<code>**δ**</code>；</li>
+<li>遍历距离中线距离小于 <strong><code>δ</code></strong> 所有点；</li>
+</ol>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683190675087-e0b2876a-0c2e-4ebc-966c-57b1ce127fb2.png" /></p>
+<p><code>strip</code>内的点数为<img alt="image" src="https://cdn.nlark.com/yuque/__latex/00f1d54c0058eb3877ca0b59e34cc75b.svg" />时，可以获得<img alt="image" src="https://cdn.nlark.com/yuque/__latex/74efb4fa98d1dbbe8d429ae21dac2af6.svg" />时间开销，最坏情况是<code>strip</code>内的点是<img alt="image" src="https://cdn.nlark.com/yuque/__latex/8c51f5913186f8ac629f1d5838940f33.svg" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683257865655-463bb26d-a77f-44bb-8ac8-c3abc9edd44a.png" /><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683257906863-e38c49a8-6e65-4657-8c40-2878494455eb.png" /></p>
+<p><img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/34330502/1683257887525-9a81d452-aa77-4437-b0d2-d2c677f2993f.png" /></p>
+<p><strong>第二次剪枝：</strong></p>
+<ol>
+<li>
+<p>考虑Y-轴方向的剪枝，<strong>需要对Y-轴方向的点排序</strong>，由于同时需要进行X-轴方向的剪枝，<u>具体实现上可以维护两个队列</u>；</p>
+</li>
+<li>
+<p>最坏情况不存在N-1个点都塞在这个方框里，否则在分治一边的点时 <strong><code>δ</code></strong> 就会变小；最差是塞七个点（中线上会有重叠，且同一边可能会有点被重复考虑）；</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>
