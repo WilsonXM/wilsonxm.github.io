@@ -25,7 +25,7 @@ Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些�
 #### 【Fibonacci Numbers:  F(N) = F(N – 1) + F(N – 2)】
 ![alt](./assets/image.png)
 
-递归复杂度：\$O(2^N)\$
+递归复杂度：$O(2^N)$
 
 原因：递归中有大量重复计算；
 
