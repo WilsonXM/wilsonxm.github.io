@@ -1,7 +1,12 @@
 site_name: WilsonXM's Notebook
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+
 nav:
-  - "Home": index.md
-  - "Subjects":
-    - "ADS":
-      - ADS/Dynamic Programming.md
-      - ADS/🤡[未完待补]高级数据结构与算法分析.md
+  - Home: index.md
+  - Subjects:
+    - ADS:
+      - 基础部分: ADS/[未完待补]高级数据结构与算法分析.md
+      - 动态规划: ADS/Dynamic Programming.md
