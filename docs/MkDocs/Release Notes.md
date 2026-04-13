@@ -12,4 +12,5 @@
 
 * Add `Release Notes.md` to trace the updates and tips learned by building this sites.
 * Add permanent link after each section of markdown files.
-* Rename the pages by adding titles in `mkdocs.yml/nav`. 
+* Rename the pages by adding titles in `mkdocs.yml/nav`.
+* Fix wrong link structure in `[未完待补]高级数据结构与算法分析.md` and insert Latex mathmatical equations.
