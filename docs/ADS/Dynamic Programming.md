@@ -11,8 +11,8 @@ DP的两个元素
 
 DP的关键在于确定"**状态**"和"**状态转移方程**", 其基本流程是：
 1. 找到最优子结构，确定重叠子问题
-2. 用$sub-solution$递归地设计解决方法
-3. 将递归范式转化为$DP$范式
+2. 用 $sub-solution$ 递归地设计解决方法
+3. 将递归范式转化为 $DP$ 范式
 4. 如果需要的话，记录一些额外信息
 
 
@@ -25,7 +25,7 @@ Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些�
 #### 【Fibonacci Numbers:  F(N) = F(N – 1) + F(N – 2)】
 ![alt](./assets/image.png)
 
-递归复杂度：$O(2^N)$
+递归复杂度：$O(2^N)$ 
 
 原因：递归中有大量重复计算；
 
@@ -50,7 +50,7 @@ Tip 2：DP的一般趋势是从小规模到大规模，因此可以定义一些�
 
 $m_{ij}$表示原问题的一个泛化，称为”状态“
 
-具体代码实现，时间复杂度为![alt](./assets/image5.svg)
+具体代码实现，时间复杂度为 $O(N^3)$ 
 
 ```c
 /* r contains number of columns for each of the N matrices */ 
@@ -90,6 +90,6 @@ void OptMatrix( const long r[ ], int N, TwoDimArray M )
 
 #### 【All-Pairs Shortest Path】
 ##### （1）Single-Source Algorithm
-用Dijkstra算法等单源最短路径算法，对每个节点用一次，时间复杂度为![alt](./assets/image8.svg)，稀疏图更快；
+用Dijkstra算法等单源最短路径算法，对每个节点用一次，时间复杂度为 $T(N) = O(|V|^3)$ ，稀疏图更快；
 
 ##### （2）DP
