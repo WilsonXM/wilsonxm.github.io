@@ -2,6 +2,12 @@
 
 ---
 
+## Version 0.0.1 (2026-4-14)
+
+### Fix
+
+* Fix the wrong rendered mathmatics equations.
+
 ## Version 0.0.0 (2026-4-13)
 
 ### 隐藏文件的小技巧
