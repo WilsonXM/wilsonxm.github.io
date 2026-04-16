@@ -2,6 +2,12 @@
 
 ---
 
+## Version 0.0.2 (2026-4-16)
+
+### Update
+
+* Change the theme to Material for MkDocs
+
 ## Version 0.0.1 (2026-4-14)
 
 ### Fix

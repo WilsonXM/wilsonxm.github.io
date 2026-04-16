@@ -1,5 +1,8 @@
 site_name: WilsonXM's Notebook
 
+theme:
+  name: material
+
 markdown_extensions:
   - toc:
       permalink: "#"
