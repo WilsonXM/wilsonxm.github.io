@@ -2,6 +2,11 @@
 
 ---
 
+## Version 0.0.3 (2026-5-26)
+
+* Add YAML validation for `mkdocs.yaml`.
+* Add Toggle Light/Dark Modes.
+
 ## Version 0.0.2 (2026-4-16)
 
 ### Update
